@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  
+  <head>
+    
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    <title>Solo Trader</title>
+  
+  </head>
+  
+  <body>
+
+    <ul id="tls001"></ul>
+
+    <script>
+    
+      // Output JSON File to HTML
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          // console.log(xhttp.responseText);
+          var response = JSON.parse(xhttp.responseText);
+          // console.log(response);
+          var tls001 = response.tls001;
+          // console.log(tls001);
+          var outputs = '';
+          for (var i = 0; i < tls001.length; i++) {
+            outputs += '<li>' + tls001[i].titleNum + '</li>' +
+              '<li>' + tls001[i].bisName + '</li>' +
+              '<li>' + tls001[i].bisDetl[0] + '</li>' +
+              '<li>' + tls001[i].bisDetl[1] + '</li>' +
+              '<li>' + tls001[i].bisDetl[2] + '</li>' +
+              '<li>' + tls001[i].bisVAT + '</li>' +
+              '<li>' + tls001[i].dateSale + '</li>' +
+              '<li>' + tls001[i].custName + '</li>' +
+              '<li>' + tls001[i].custSgn + '</li>' +
+              '<li>' + tls001[i].itemDesc[0] + '</li>' +
+              '<li>' + tls001[i].itemDesc[1] + '</li>' +
+              '<li>' + tls001[i].itemDesc[2] + '</li>' +
+              '<li>' + tls001[i].itemQnt[0] + '</li>' +
+              '<li>' + tls001[i].itemQnt[1] + '</li>' +
+              '<li>' + tls001[i].itemQnt[2] + '</li>' +
+              '<li>' + tls001[i].itemCost[0] + '</li>' +
+              '<li>' + tls001[i].itemCost[1] + '</li>' +
+              '<li>' + tls001[i].itemCost[2] + '</li>' +
+              '<li>' + tls001[i].itemTotal[0] + '</li>' +
+              '<li>' + tls001[i].itemTotal[1] + '</li>' +
+              '<li>' + tls001[i].itemTotal[2] + '</li>' +
+              '<li>' + tls001[i].totalCost + '</li>' +
+              '<li>' + tls001[i].totalVAT + '</li>' +
+              '<li>' + tls001[i].totalNET + '</li>' +
+              '<li>' + tls001[i].payMethod + '</li>' +
+              '<li>' + tls001[i].amountTendered + '</li>' +
+              '<li>' + tls001[i].amountReturned + '</li>' +
+              '<li>' + tls001[i].salesRep + '</li>' +
+              '<li>' + tls001[i].e_oe + '</li>';
+          };
+          document.getElementById('tls001').innerHTML = outputs;
+        };
+      };
+      xhttp.open("GET", "tls001.json", true);
+      xhttp.send();
+    
+    </script>
+  
+  </body>
+
+  </html>

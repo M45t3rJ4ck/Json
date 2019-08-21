@@ -1,0 +1,42 @@
+{
+    "tls001": {
+        "bisName": "Nu3w4v3 C0d1ng",
+        "bisDetl": {
+            "Street": "48 Bosman Street",
+            "City": "Kuilsrivier",
+            "Phone": "074 578 1454"
+        },
+        "bisVAT": 123456789,
+        "dateSale": "25/11/2019",
+        "custName": "WA Voges",
+        "itemDesc": [
+            "Item 1",
+            "Item 2",
+            "Item 3"
+        ],
+        "itemQnt": [
+            5,
+            3,
+            11
+        ],
+        "itemCost": [
+            0.25,
+            3.25,
+            110.58
+        ],
+        "itemTotal": [
+            1.25,
+            9.75,
+            1216.38
+        ],
+        "totalCost": 1227.38,
+        "totalVAT": 184.11,
+        "totalNET": 1043.27,
+        "payMethod": "Cash",
+        "amountTendered": 1300.00,
+        "amountReturned": 72.62,
+        "custSgn": true,
+        "salesRep": "WA Voges",
+        "e_oe": "7 Days return policy or keep your problems to yourself"
+    }
+}

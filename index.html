@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        
+        <meta charset="UTF-8">
+        
+        <title>JSON Crash Course</title>
+
+    </head>
+
+    <body>
+
+        <h1>This is a Sandbox for JSON formatting</h1>
+
+        <p>Loading People from mypeople</p>
+        <ul id="mypeople"></ul>
+        <p>Loading People from peoples</p>
+        <ul id="peoples"></ul>
+
+        <script>
+        
+            // Javascript Object
+            var person = {
+                name: "Nu3w4v3 C0d1ng",
+                age: 36,
+                // Will not output function in JSON 
+                email: function(){
+                    return 'wavoges@gmail.com'
+                },
+                address: {
+                    street: "48 Bosman Street",
+                    city: "Kuilsrivier"
+                },
+                alternative: ["Willem Voges", "Adriaan Voges"]
+            }
+            mypeople = [
+                {
+                    name: "Riaan Voges",
+                    age: 36
+                },
+                {
+                    name: "Willem Voges",
+                    age: 36
+                },
+                {
+                    name: "Adriaan Voges",
+                    age: 36
+                }
+            ]
+
+            // Converting to JSON and from JSON
+            perjson = JSON.stringify(person);
+            perpson = JSON.parse(perjson);
+            // Output Javascript Object
+            console.log(person);
+            console.log(person.name);
+            console.log(person.age);
+            console.log(person.email());
+            console.log(person.address.street);
+            console.log(person.alternative[0]);
+            console.log(mypeople[1]);
+            console.log(mypeople[1].age);
+            // Output Javascript Object to HTML
+            var myoutput = '';
+            for(var i = 0; i < mypeople.length; i++){
+                console.log(mypeople[i]);
+                console.log(mypeople[i].name);
+                console.log(mypeople[i].age);
+                myoutput += '<li>' + mypeople[i].name + '</li>';
+            };
+            document.getElementById('mypeople').innerHTML = myoutput;
+            // Output JSON Object
+            console.log(perjson);
+            console.log(perpson);
+            
+            // Output JSON File to HTML
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // console.log(xhttp.responseText);
+                    var response = JSON.parse(xhttp.responseText);
+                    // console.log(response);
+                    var peoples = response.peoples;
+                    // console.log(peoples);
+                    var outputs = '';
+                    for (var i = 0; i < peoples.length; i++) {
+                        outputs += '<li>' + peoples[i].name + " " + peoples[i].age + '</li>';
+                    };
+                    document.getElementById('peoples').innerHTML = outputs;
+                };
+            };
+            xhttp.open("GET", "peoples.json", true);
+            xhttp.send();
+
+        </script>
+        
+    </body>
+
+</html>

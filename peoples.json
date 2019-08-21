@@ -1,0 +1,20 @@
+{
+    "peoples": [
+        {
+            "name": "WA Voges",
+            "age": 66
+        },
+        {
+            "name": "Riaan Voges",
+            "age": 36
+        },
+        {
+            "name": "Willem Voges",
+            "age": 63
+        },
+        {
+            "name": "Adriaan Voges",
+            "age": 33
+        }
+    ]
+}
